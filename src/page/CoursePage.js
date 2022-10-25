@@ -18,7 +18,7 @@ const CoursePage = () => {
       <div className='container py-5'>
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
           {
-            // courseList.map((course, index) => <CourseCard key={index} course={course} />)
+            courseList.map((course, index) => <CourseCard key={index} course={course} />)
           }
         </div>
 
