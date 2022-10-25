@@ -28,6 +28,21 @@
   color: white;
 }
 
+.signOutButton {
+  padding: 5px 25px 5px 25px;
+  border: 2px solid red;
+  background-color: red;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  color: white;
+}
+
+.signOutButton:hover {
+  border: 2px solid red;
+  background-color: unset;
+  color: black;
+}
+
 .navLogo {
   width: 10%;
 }

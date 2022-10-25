@@ -1,23 +1,62 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import "./SignUp.css";
 import singInImg from '../../resource/sing-in.png'
 import { Link } from 'react-router-dom';
 import SocialSIgnIn from '../shared/SocialSIgnIn';
+import { AuthContext } from '../../context/authProvider/AuthProvider';
+import toast from 'react-hot-toast';
+
 
 
 const SignUp = () => {
 
-  const handelSignUp = (event) => {
-    event.preventdefault();
-    const user = {
-      name: event.target.name.value,
-      image: event.target.image.value,
-      email: event.target.email.value,
-      password: event.target.password.value
-    }
-    console.log(user.name)
+  let [error, setError] = useState('')
+  // let [accepted, setAccepted] = useState(false);
+  let { createUser, updateUserProfile, veryFyEmail } = useContext(AuthContext)
+
+   
+  
+
+  let handleSubmit = (event) => {
+
+    event.preventDefault();
+    let form = event.target;
+    let name = form.name.value;
+    let photoURL = form.photoURL.value;
+    let email = form.email.value;
+    let password = form.password.value;
+
+    // console.log(name, password, email, photoUrl);
+
+    createUser(email, password)
+      .then(result => {
+        let user = result.user;
+        console.log(user)
+        setError('')
+        form.reset();
+        handleUpdateUserProfile(name, photoURL);
+        toast.success('Please varify your email address..')
+      })
+      .catch(error => {
+        console.error(error)
+        setError(error.message)
+      })
 
   }
+
+  let handleUpdateUserProfile = (name, photoURL) => {
+    let profile = {
+      displayName: name,
+      photoURL: photoURL 
+    }
+    updateUserProfile(profile)
+    .then(() => {})
+    .catch(e => console.error(e))
+  }
+
+ 
+   
+
 
   return (
     <div className='container-fluid pb-4'>
@@ -51,27 +90,29 @@ const SignUp = () => {
 
 
 
-          <form className='w-75 pt-5 container' onSubmit={handelSignUp}>
+          <form className='w-75 pt-5 container' onSubmit={handleSubmit}>
             <div className="mb-3">
               <label for="formGroupExampleInput" className="form-label fw-bold ">Full Name</label>
-              <input type="text" name='name' className="form-control  inputField" id="formGroupExampleInput" placeholder="Full Name" required />
+              <input type="text" name='name' className="form-control  inputField"  placeholder="Full Name" required />
             </div>
 
             <div className="mb-3">
               <label for="formGroupExampleInput" className="form-label fw-bold ">Image</label>
-              <input type="text" name='image' className="form-control  inputField" id="formGroupExampleInput" placeholder="Image" required />
+              <input type="text" name='photoURL' className="form-control  inputField"  placeholder="Image" required />
             </div>
 
             <div className="mb-3">
               <label for="formGroupExampleInput" className="form-label fw-bold ">Email</label>
-              <input type="email" name='email' className="form-control  inputField" id="formGroupExampleInput" placeholder="Email" required />
+              <input type="email" name='email' className="form-control  inputField" placeholder="Email" required />
             </div>
             <div className="mb-3">
               <label for="formGroupExampleInput2" className="form-label fw-bold">Password</label>
-              <input type="password" name='password' className="form-control  inputField" id="formGroupExampleInput2" placeholder="Password" required />
+              <input type="password" name='password' className="form-control  inputField"  placeholder="Password" required />
             </div>
 
-
+               <div>
+                 <p>{error}</p>
+               </div>
 
             <div className='pt-4'>
               <button type="submit" className="btn submitButton btn-lg w-100">Sign Up</button>

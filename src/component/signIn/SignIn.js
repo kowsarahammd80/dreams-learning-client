@@ -1,21 +1,54 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import "./SignIn.css";
 import singInImg from '../../resource/sing-in.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialSIgnIn from '../shared/SocialSIgnIn';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../context/authProvider/AuthProvider';
 
 
 const SignIn = () => {
+  let [error, setError] = useState('')
+   
+  let { signIn, setLoading } = useContext(AuthContext)
+  let navigate = useNavigate()
+  let location = useLocation()
 
-  const handelSignIn = (event) => {
+  let from = location.state?.from?.pathname || '/'
+
+  let handleSubmit = (event) => {
+
     event.preventDefault();
-    const user = {
-      email: event.target.email.value,
-      password: event.target.password.value
-    }
-    console.log(user.email)
+    let form = event.target;
+    let email = form.email.value;
+    let password = form.password.value;
+
+    signIn(email, password)
+    .then(result => {
+      let user = result.user;
+       console.log(user);
+       form.reset()
+       setError('')
+       if(user.emailVerified){
+        navigate(from, {replace: true});
+       }
+       else{
+         toast.error('Your email is not veryfied. Please veryfied email..')
+       }
+    })
+    .catch(error => {
+
+      console.error(error)
+      setError(error.message);
+
+   } )
+   .finally(() => {
+     setLoading(false);
+   })
+
 
   }
+
   return (
     <div className='container-fluid pb-4'>
 
@@ -48,7 +81,7 @@ const SignIn = () => {
 
 
 
-          <form className='w-75 pt-5 container' onSubmit={handelSignIn}>
+          <form className='w-75 pt-5 container' onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="formGroupExampleInput" className="form-label fw-bold ">Email</label>
               <input type="email" name='email' className="form-control  inputField" id="formGroupExampleInput" placeholder="Email" required />
@@ -59,11 +92,14 @@ const SignIn = () => {
             </div>
 
             <Link to="/password-reset" className='forgotPass'>Forgot Password ?</Link>
-
+            
             <div className='pt-4'>
               <button type="submit" className="btn submitButton btn-lg w-100">Sign In</button>
             </div>
-
+              
+              <>
+              <p>{error}</p>
+              </>
           </form>
 
           <SocialSIgnIn />
