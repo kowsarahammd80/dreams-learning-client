@@ -4,7 +4,7 @@
   border-radius: 50%;
 }
 
-.card-img-top {
+.card2-img-top {
   height: 30vh;
 }
 
@@ -22,24 +22,24 @@
   color: #FFD700;
 }
 
-.cardText {
+.cardText2 {
   color: black;
 }
 
-.card:hover .cardText {
+.card2:hover .cardText2 {
   color: white;
 }
 
-.card:hover .buyButton {
+.card2:hover .buyButton {
   color: white;
 }
 
-.card {
+.card2 {
   background-color: white;
   transition: 0.5s ease-in-out;
 }
 
-.card:hover {
+.card2:hover {
   background-color: rgb(65, 54, 85);
 }
 

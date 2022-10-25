@@ -14,28 +14,28 @@ const CourseCard = ({ course }) => {
   }
   return (
     <div className='col'>
-      <div class="card shadow radious border-0" >
-        <img src={courseImage} class="card-img-top radious" alt="..." />
+      <div class="card card2 shadow radious border-0" >
+        <img src={courseImage} class="card-img-top radious card2-img-top" alt="..." />
         <div class="card-body">
           <div className='d-flex align-items-center gap-2'>
             <img src={instructorPhoto} alt="" className='instructorPhoto' />
-            <h2 className='instructorTitle cardText'>{instructor}</h2>
+            <h2 className='instructorTitle cardText cardText2'>{instructor}</h2>
           </div>
 
           <div className='pt-3'>
-            <h2 className='courseTitle cardText'>{courseName}</h2>
+            <h2 className='courseTitle cardText cardText2'>{courseName}</h2>
 
             <div className='d-flex justify-content-between align-items-center gap-2 ps-1'>
               <div className='d-flex justify-content-center  gap-2'>
-                <i class="fa-solid fa-book-open pt-1 cardText"></i>
-                <p className='cardText'>{lesson}+ Lesson</p>
+                <i class="fa-solid fa-book-open pt-1 cardText cardText2"></i>
+                <p className='cardText cardText2'>{lesson}+ Lesson</p>
               </div>
               <div className='d-flex justify-content-center  gap-2'>
-                <i class="fa-regular fa-clock pt-1 cardText"></i>
-                <p className='cardText'>{time}</p>
+                <i class="fa-regular fa-clock pt-1 cardText cardText2"></i>
+                <p className='cardText cardText2'>{time}</p>
               </div>
             </div>
-            <hr className='cardText' />
+            <hr className='cardText cardText2' />
             <div className='d-flex align-item-center gap-3'>
               <div>
                 {
@@ -44,7 +44,7 @@ const CourseCard = ({ course }) => {
 
               </div>
 
-              <p className='cardText'>{rating}</p>
+              <p className='cardText cardText2'>{rating}</p>
             </div>
 
             <div>

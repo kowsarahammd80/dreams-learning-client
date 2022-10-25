@@ -14,8 +14,14 @@ const InstactorPages = () => {
   return (
     <div >
       <NavBar/>
-    <div className='container py-5'>
-      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      
+       <div className='text-center pb-3'>
+        <h2>Featured Instructor</h2>
+          <p>social-cultural systems of designated behaviors and practices, morals, worldviews, texts, sanctified places, prophecies, ethics, or organizations</p>
+       </div>
+
+    <div className='container'>
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 gy-0">
          {
           Instactors.map((instactor, index) => <Instactor instactor={instactor} key={index}></Instactor>)
          }

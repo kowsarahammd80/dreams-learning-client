@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import UserAuth from "./component/auth/UserAuth";
+import Blog from "./component/Blog/Blog";
 import Footer from "./component/footer/Footer";
 import CoursePage from "./page/CoursePage";
 import FaqPage from "./page/FaqPage";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/course" element={<CoursePage />}></Route>
         <Route path="/faq" element={<FaqPage />}></Route>
         <Route path="/instactor" element={<InstactorPages></InstactorPages>}></Route>
+        <Route path="/blogs" element={<Blog></Blog>}></Route>
         <Route path="/sign-in" element={<UserAuth><SignInPage /></UserAuth>}></Route>
         <Route path="/sign-up" element={<UserAuth><SignUpPage /></UserAuth>}></Route>
       </Routes>

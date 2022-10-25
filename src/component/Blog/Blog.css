@@ -1,0 +1,5 @@
+.blogs:hover {
+  box-shadow: gray 10px 10px 10px 10px;
+  background-color: aqua;
+  transition: 0.3s ease-in-out;
+}
