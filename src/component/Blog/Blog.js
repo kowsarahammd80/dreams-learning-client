@@ -6,7 +6,15 @@ const Blog = () => {
   return (
     <div>
       <NavBar />
-      <div className='container mb-3 mt-2'>
+     
+     <div className=' mx-auto text-center'>
+       <div>
+       <h2>Latest Blogs</h2>
+       <p>Many blogs provide commentary on a particular subject or topic, ranging from philosophy, religion, and arts to science, politics, and sports.</p>
+       </div>
+     </div>
+
+      <div className='container mb-3 mt-5'>
         <div class="row row-cols-1 row-cols-md-2 g-4">
           <div class="col">
             <div class="card blogs">

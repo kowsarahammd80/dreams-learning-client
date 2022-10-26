@@ -13,6 +13,7 @@ const CourseCard = ({ course }) => {
     return showRating;
   }
   return (
+     
     <div className='col'>
       <div class="card card2 shadow radious border-0" >
         <img src={courseImage} class="card-img-top radious card2-img-top" alt="..." />
@@ -53,10 +54,16 @@ const CourseCard = ({ course }) => {
           </div>
 
 
-        </div>
-      </div>
+         </div>
+       </div>
+       </div>
+      
+     
+    
 
-    </div>
+
+
+
   );
 };
 

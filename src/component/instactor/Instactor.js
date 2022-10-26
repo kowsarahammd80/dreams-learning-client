@@ -8,17 +8,16 @@ const Instactor = ({instactor}) => {
 
   return (
    
-  <div class="col">
-    <div class="card cardText h-75">
-      <img src={instructorPhoto} class="card-img-top img-fluid h-50" alt="..." />
-      <div class="card-body cardText text-center">
-        <h5 class="card-title fw-bold">{instructor}</h5>
-        <p class="card-text ">{courseName}</p>
-        <p > <i class="fa-solid fa-solid1 fa-user-group"></i> 50 Studens</p>
-      </div>
+    <div className="col">
+     <div className="card">
+       <img src={instructorPhoto} className="card-img-top imges" alt="..." />
+        <div className="card-body text-center">
+          <h5 className="card-title">{instructor}</h5>
+          <p className="card-text">{courseName}</p>
+          <p className=''><i class="fa-solid fa-user-group fa-solid1 me-2"></i> 50 Students</p>
+        </div>
     </div>
   </div>
- 
   
   
   );
