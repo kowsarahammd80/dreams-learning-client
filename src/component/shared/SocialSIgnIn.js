@@ -13,17 +13,17 @@ import { AuthContext } from '../../context/authProvider/AuthProvider';
 const SocialSIgnIn = () => {
   let { providerLogin,setUser } = useContext(AuthContext)
 
-  // let googleProvider = new GoogleAuthProvider();
+  let googleProvider = new GoogleAuthProvider();
   let githubProvider = new GithubAuthProvider();
 
-  // let handleGoogleSingIn = () => {
-  //   providerLogin(googleProvider)
-  //     .then(result => {
-  //       let user = result.user;
-  //       console.log(user)
-  //     })
-  //     .catch(error => console.error(error))
-  // }
+  let handleGoogleSingIn = () => {
+    providerLogin(googleProvider)
+      .then(result => {
+        let user = result.user;
+        console.log(user)
+      })
+      .catch(error => console.error(error))
+  }
 
   let handleGithubSignIn = () => {
     providerLogin(githubProvider)
@@ -39,7 +39,7 @@ const SocialSIgnIn = () => {
       <p className='text-center '>Or Sign In with</p>
 
       <div className='row justify-content-center align-items-center'>
-        <button className='col-12 col-lg-5 d-flex align-items-center justify-content-center g-3 socialButton middleBorder' >
+        <button onClick={handleGoogleSingIn} className='col-12 col-lg-5 d-flex align-items-center justify-content-center g-3 socialButton middleBorder' >
           <img src={google} className="w-10 me-2" alt="" />
           <h2 className='socialTag'>Sign in using Google</h2>
         </button>

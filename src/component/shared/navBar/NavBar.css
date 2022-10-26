@@ -1,4 +1,5 @@
 .signInButton {
+  text-align: center;
   padding: 5px 25px 5px 25px;
   border: 2px solid #F66962;
   background-color: #F66962;
@@ -14,21 +15,23 @@
 }
 
 .signUpButton {
+  text-align: center;
   padding: 5px 25px 5px 25px;
   border: 2px solid #917CF6;
   font-weight: 600;
   transition: 0.3s ease-in-out;
   background-color: unset;
-  color: black;
+  color: #917CF6;
 }
 
 .signUpButton:hover {
   border: 2px solid #917CF6;
   background-color: #917CF6;
-  color: white;
+  color: white!important;
 }
 
 .signOutButton {
+  text-align: center;
   padding: 5px 25px 5px 25px;
   border: 2px solid red;
   background-color: red;

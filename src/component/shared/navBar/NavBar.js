@@ -7,6 +7,7 @@ import Loading from '../loading/Loading';
 import "./NavBar.css";
 
 const NavBar = () => {
+  const [navbar, setnavBar] = useState(false);
   let { user, loading, logOut } = useContext(AuthContext);
   const [photo, setPhoto] = useState('https://thumbs.dreamstime.com/b/happy-smiling-geek-hipster-beard-man-cool-avatar-geek-man-avatar-104871313.jpg')
   if (loading) {
@@ -15,13 +16,26 @@ const NavBar = () => {
 
   const handelSignOut = () => {
     logOut();
-
   }
 
 
-  return (
 
-    <nav className="navbar navbar-expand-lg py-4">
+  const changeBgScroll = () => {
+      if (window.scrollY <= 50) {
+          setnavBar(false)
+      } else {
+          setnavBar(true);
+      }
+  }
+  window.addEventListener('scroll', changeBgScroll);
+
+
+  return (
+    <nav className={
+      navbar ?
+          "navbar navbar-expand-lg  bg bg-white sticky-top py-4"
+          :
+          "navbar navbar-expand-lg py-4  sticky-top homeBg"}>
       <div className="container">
 
         <img src="https://dreamslms.dreamguystech.com/html/assets/img/logo.svg" alt="" className="navLogo " />
@@ -30,21 +44,21 @@ const NavBar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0 gap-0 gap-lg-3">
             <li className="nav-item">
-              <NavLink to='/home' className="nav-link active" aria-current="page" >Home</NavLink>
+              <NavLink to='/home' className="nav-link " aria-current="page" >Home</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to='/course' className="nav-link active" aria-current="page" >Course</NavLink>
+              <NavLink to='/course' className="nav-link " aria-current="page" >Course</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to='/faq' className="nav-link active" aria-current="page" >Faq</NavLink>
+              <NavLink to='/faq' className="nav-link " aria-current="page" >Faq</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to='/instactor' className="nav-link active" aria-current="page" >Instructor</NavLink>
+              <NavLink to='/instructor' className="nav-link " aria-current="page" >Instructor</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to='/blogs' className="nav-link active" aria-current="page" >Blogs</NavLink>
+              <NavLink to='/blogs' className="nav-link " aria-current="page" >Blogs</NavLink>
             </li>
 
           </ul>

@@ -1,7 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import UserAuth from "./component/auth/UserAuth";
-import Blog from "./component/Blog/Blog";
 import Footer from "./component/footer/Footer";
+import NavBar from "./component/shared/navBar/NavBar";
+import BlogPage from "./page/blogPage/BlogPage";
+import CourseDetailPage from "./page/CourseDetailPage";
 import CoursePage from "./page/CoursePage";
 import FaqPage from "./page/FaqPage";
 import HomePage from "./page/HomePage";
@@ -15,18 +17,23 @@ import SignUpPage from "./page/SignUpPage";
 function App() {
 
   return (
-    <div >
+    <div className="">
+      
+      <NavBar/> 
       <Routes>
-        <Route path="/" element={<Navigate to='/home' />}></Route>
-        <Route path="/home" element={<HomePage />}></Route>
-        <Route path="/course" element={<CoursePage />}></Route>
+        <Route path="/" element={<Navigate to='/home' />}/>
+        <Route path="/home" element={<HomePage />}/>
+
+        <Route path="/course" element={<CoursePage />}/>
+        <Route path="/course/:id" element={<CourseDetailPage/>}/>     
+        
         <Route path="/faq" element={<FaqPage />}></Route>
-        <Route path="/instactor" element={<InstactorPages></InstactorPages>}></Route>
-        <Route path="/blogs" element={<Blog></Blog>}></Route>
+        <Route path="/instructor" element={<InstactorPages></InstactorPages>}></Route>
+        <Route path="/blogs" element={<BlogPage/>}></Route>
         <Route path="/sign-in" element={<UserAuth><SignInPage /></UserAuth>}></Route>
         <Route path="/sign-up" element={<UserAuth><SignUpPage /></UserAuth>}></Route>
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
 
     </div>
   );

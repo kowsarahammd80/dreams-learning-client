@@ -17,3 +17,20 @@ code {
 div {
   font-family: 'Poppins', sans-serif;
 }
+
+nav a {
+  font-size: 18px;
+  font-weight: 600!important;
+}
+
+nav a.active {
+  color: #F66962!important;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+nav a:hover {
+  text-decoration: none;
+  color: #F66962 !important;
+}

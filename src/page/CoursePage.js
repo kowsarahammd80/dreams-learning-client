@@ -1,23 +1,49 @@
-import React from 'react';
-import CourseCard from '../component/courseCard/CourseCard';
-import Couses from '../component/courses/Couses';
-import Loading from '../component/shared/loading/Loading';
-import NavBar from '../component/shared/navBar/NavBar';
-import useCourseList from '../hooks/useCourseList';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import Courses from "../component/courses/Courses";
 const CoursePage = () => {
-
-
-
   return (
+    <div className="row gx-0">
+      <div className="col-0 col-lg-2 sideBar order-2 order-lg-1">
 
-    <div >
-       
-      <NavBar />
-        
-     
+      <div className=" h5 sideLink">
+          <NavLink
+            to="/course"
+            className="nav-link d-flex  align-items-center gap-2 fw-bold "
+            aria-current="page"
+          >
+            <i className="fa-solid fa-book"></i>
+            Course
+          </NavLink>
+        </div>
 
-      <Couses/>
+        <div className=" h5 sideLink">       
+          <NavLink to="/instructor" className="nav-link d-flex  align-items-center gap-2 fw-bold " aria-current="page">
+          <i className="fa-solid fa-person-chalkboard"></i>
+          Instructors
+          </NavLink>
+        </div>
 
+
+        <div className=" h5 sideLink">       
+          <NavLink to="/faq"  className="nav-link d-flex  align-items-center gap-2 fw-bold "  aria-current="page">
+          <i className="fa-solid fa-circle-question"></i>
+            FAQ
+          </NavLink>
+        </div>
+
+        <div className="h5 sideLink">       
+          <NavLink to="/about"  className="nav-link d-flex align-items-center gap-2 fw-bold "  aria-current="page">
+          <i className="fa-solid fa-address-card"></i>
+            About Us
+          </NavLink>
+        </div>
+
+      </div>
+
+      <div className="col-12 col-lg-10  order-1 order-lg-2">
+        <Courses />
+      </div>
     </div>
   );
 };
