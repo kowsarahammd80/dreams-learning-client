@@ -68,13 +68,13 @@ const NavBar = () => {
 
           </ul>
           {!user ? <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
-          <button onClick={changeMood} className=' border-0' ><i class={mood?'fa-solid fa-moon':'fa-solid fa-sun'}></i></button>
+          <button onClick={changeMood} className='bg-none  border-0' ><i class={mood?'fa-solid fa-moon':'fa-solid fa-sun'}></i></button>
             <Link to="/sign-in" className='signInButton rounded-pill decorationNone'>Sign In</Link>
             <Link to="/sign-Up" className='signUpButton rounded-pill decorationNone'>Sign Up</Link>
           </ul>
             :
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
-              <button onClick={changeMood} className=' border-0' ><i class={mood?'fa-solid fa-moon':'fa-solid fa-sun'}></i></button>
+              <button onClick={changeMood} className='bg-none border-0' ><i class={mood?'fa-solid fa-moon':'fa-solid fa-sun'}></i></button>
               <button className='signOutButton rounded-pill decorationNone' onClick={handelSignOut}>SignOut</button>
               <Link to="/profile" className='border-0 instructorPhoto d-flex '>
                 <img src={user.photoURL || photo} alt="" className='instructorPhoto' />

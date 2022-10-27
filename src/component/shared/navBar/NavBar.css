@@ -71,3 +71,6 @@
   transform: scale(1);
   transition: 0.3s ease-in-out;
 }
+.bg-none{
+  background-color: unset;
+}
