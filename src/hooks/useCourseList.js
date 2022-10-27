@@ -7,7 +7,7 @@ const useCourseList = (id) => {
     id?
      url = `https://dreams-learning-server.vercel.app/courseList/${id}`
      :
-     url ="https://dreams-learning-server.vercel.app/courseList/"
+     url ="https://dreams-learning-server.vercel.app/courseList"
 
     useEffect(() => {
         fetch(url)
