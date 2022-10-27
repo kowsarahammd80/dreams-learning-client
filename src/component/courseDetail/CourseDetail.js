@@ -21,7 +21,6 @@ const CourseDetail = ({ course, loading }) => {
   }
 
   const handleCheckout=()=>{
-    console.log('triggered')
     toast.success('Thank you for your feedback!', {
       position: "top-right",
       autoClose: 5000,

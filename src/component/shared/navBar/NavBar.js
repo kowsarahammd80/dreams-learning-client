@@ -69,12 +69,12 @@ const NavBar = () => {
             :
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
               <button className='signOutButton rounded-pill decorationNone' onClick={handelSignOut}>SignOut</button>
-              <button className='border-0 instructorPhoto d-flex '>
+              <Link to="/profile" className='border-0 instructorPhoto d-flex '>
                 <img src={user.photoURL || photo} alt="" className='instructorPhoto' />
                 <div className='shadow rounded-pill pl-1 hoverName'>
                   <h5 className=''>{user.displayName}</h5>
                 </div>
-              </button>
+              </Link>
             </ul>
           }
 

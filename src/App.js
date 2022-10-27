@@ -13,6 +13,9 @@ import SignUpPage from "./page/SignUpPage";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import MentorPage from "./page/MentorPage";
+import Footer from "./component/footer/Footer";
+import Profile from "./component/profile/Profile";
 
 
 
@@ -34,6 +37,8 @@ function App() {
         <Route path="/faq" element={<FaqPage />}></Route>
         <Route path="/instructor" element={<InstactorPages></InstactorPages>}></Route>
         <Route path="/blogs" element={<BlogPage/>}></Route>
+        <Route path="/about" element={<><MentorPage/> <Footer/></>}></Route>
+        <Route path="/profile" element={<><Profile/> <Footer/></>}></Route>
         <Route path="/sign-in" element={<UserAuth><SignInPage /></UserAuth>}></Route>
         <Route path="/sign-up" element={<UserAuth><SignUpPage /></UserAuth>}></Route>
       </Routes>
