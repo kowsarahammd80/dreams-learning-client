@@ -5,7 +5,7 @@ const useBlogs = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("blogs.json")
+        fetch("https://dreams-learning-server.vercel.app/blogsList")
             .then(result => result.json())
             .then(data => { setBlogList(data); setLoading(false) })
 

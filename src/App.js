@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import RequireAuth from "./component/auth/RequireAuth";
 import UserAuth from "./component/auth/UserAuth";
-import Footer from "./component/footer/Footer";
 import NavBar from "./component/shared/navBar/NavBar";
 import BlogPage from "./page/blogPage/BlogPage";
 import CourseDetailPage from "./page/CourseDetailPage";
@@ -8,9 +8,12 @@ import CoursePage from "./page/CoursePage";
 import FaqPage from "./page/FaqPage";
 import HomePage from "./page/HomePage";
 import InstactorPages from "./page/InstactorPages";
-
 import SignInPage from "./page/SignInPage";
 import SignUpPage from "./page/SignUpPage";
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -20,12 +23,13 @@ function App() {
     <div className="">
       
       <NavBar/> 
+      
       <Routes>
         <Route path="/" element={<Navigate to='/home' />}/>
         <Route path="/home" element={<HomePage />}/>
 
         <Route path="/course" element={<CoursePage />}/>
-        <Route path="/course/:id" element={<CourseDetailPage/>}/>     
+        <Route path="/course/:id" element={ <RequireAuth> <CourseDetailPage/></RequireAuth>  }/>     
         
         <Route path="/faq" element={<FaqPage />}></Route>
         <Route path="/instructor" element={<InstactorPages></InstactorPages>}></Route>
@@ -33,7 +37,7 @@ function App() {
         <Route path="/sign-in" element={<UserAuth><SignInPage /></UserAuth>}></Route>
         <Route path="/sign-up" element={<UserAuth><SignUpPage /></UserAuth>}></Route>
       </Routes>
-      {/* <Footer /> */}
+      <ToastContainer/>
 
     </div>
   );

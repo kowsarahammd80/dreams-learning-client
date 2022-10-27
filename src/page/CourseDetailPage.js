@@ -1,38 +1,18 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 
 import CourseDetail from "../component/courseDetail/CourseDetail";
+import Loading from "../component/shared/loading/Loading";
+import useCourseList from "../hooks/useCourseList";
 
 const CourseDetailPage = () => {
-  const [course, setCourse] = useState([]);
-  const [singleCourse,setSingleCourse] =useState([]);
-  useEffect(() => {
-    fetch("/courseList.json")
-      .then((result) => result.json())
-      .then((data) => setCourse(data));
-  }, []);
-
-  const { id } = useParams();
-
-  let courses = {};
-  if (singleCourse.length===0  && course[id] ) {
-    courses = {
-    id:id,
-      courseImage: course[id].courseImage,
-      courseName: course[id].courseName,
-      courseDetail: course[id].courseDetail,
-      pdf: course[id].pdf,
-      instructor: course[id].instructor,
-      instructorPhoto: course[id].instructorPhoto,
-      lesson: course[id].lesson,
-      time: course[id].time,
-      rating: course[id].rating,
-    };
-    setSingleCourse(courses);
+  
+  const { id } = useParams(); 
+  const [courseList, loading] = useCourseList(id);
+  if(loading){
+    return <Loading/>
   }
-
+ 
   return (
     <div className="row gx-0">
       <div className="col-0 col-lg-2 sideBar order-2 order-lg-1">
@@ -81,7 +61,7 @@ const CourseDetailPage = () => {
       </div>
 
       <div className="col-12 col-lg-10  order-1 order-lg-2">
-        <CourseDetail  course={singleCourse}/>
+        <CourseDetail  course={courseList}/>
       </div>
     </div>
   );

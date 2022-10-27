@@ -20,7 +20,7 @@ const SocialSIgnIn = () => {
     providerLogin(googleProvider)
       .then(result => {
         let user = result.user;
-        console.log(user)
+      
       })
       .catch(error => console.error(error))
   }

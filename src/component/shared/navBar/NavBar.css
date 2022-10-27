@@ -53,3 +53,20 @@
 .decorationNone {
   text-decoration: none;
 }
+
+.hoverName{
+  transform: scale(0);
+  font-size: 13px;
+  font-weight: 600; 
+  transition: 0.3s ease-in-out;
+}
+.hoverName h5{ 
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 10px 0px 10px;
+}
+
+.instructorPhoto:hover .hoverName{
+  transform: scale(1);
+  transition: 0.3s ease-in-out;
+}

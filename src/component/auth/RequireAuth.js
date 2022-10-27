@@ -4,21 +4,20 @@ import { AuthContext } from '../../context/authProvider/AuthProvider';
 
 import Loading from '../shared/loading/Loading';
 
-const UserAuth = ({ children }) => {
+const RequireAuth = ({ children }) => {
 
   let { user, loading } = useContext(AuthContext);
   let location = useLocation();
-  console.log(location.pathname)
 
   if (loading) {
     return <Loading />
   }
 
-  if (user) {
-    return <Navigate to='/home' state={{ from: location }} replace></Navigate>
-  }
+  if (!user) 
+    return <Navigate to='/sign-in' state={{ from: location }} replace></Navigate>
+  else
   return children;
 
 };
 
-export default UserAuth;
+export default RequireAuth;

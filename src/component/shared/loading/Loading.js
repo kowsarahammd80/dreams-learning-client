@@ -1,13 +1,12 @@
 import React from 'react';
-import './Loading.css';
 
 const Loading = () => {
-  return (
-    <div>
-      <h3>Loading</h3>
+    return (
+        <div className='d-flex justify-content-center align-items-center' style={{ height: '400px' }} >
+            <div className="spinner-border text-primary" role="status" style={{ height: '100px', width: '100px' }} />
+        </div >
 
-    </div>
-  );
+    );
 };
 
 export default Loading;
