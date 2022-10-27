@@ -32,7 +32,7 @@ function App() {
         <Route path="/home" element={<HomePage />}/>
 
         <Route path="/course" element={<CoursePage />}/>
-        <Route path="/course/:id" element={ <RequireAuth> <CourseDetailPage/></RequireAuth>  }/>     
+        {/* <Route path="/course/:id" element={ <RequireAuth> <CourseDetailPage/></RequireAuth>  }/>      */}
         
         <Route path="/faq" element={<FaqPage />}></Route>
         <Route path="/instructor" element={<InstactorPages></InstactorPages>}></Route>
